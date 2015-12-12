@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 from PyQt5 import QtWidgets, QtCore
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
+import sys, platform
 
 class GLWidget(QtWidgets.QOpenGLWidget):
     """
@@ -21,7 +21,7 @@ class GLWidget(QtWidgets.QOpenGLWidget):
         # 親クラスのコンストラクタ
         super(GLWidget, self).__init__(parent)
 
-        # サイズ指定
+        # サイズ指定(固定)
         self.setMinimumSize(400, 400)
         # これしないとキーボード入力受け付けてくれん。
         self.grabKeyboard()
@@ -158,8 +158,11 @@ class GLWidget(QtWidgets.QOpenGLWidget):
 
         print('経過日数：', round(self.date), '日', sep='', end='\r')
 
-
 if __name__ == '__main__':
+
+    if not platform.platform().startswith('Darwin'):
+        # Macではなぜか自動でやってくれてるので、それ以外
+        glutInit()
     
     # Qtアプリケーションのコントロールなどをするやつ。実際に何やってるかは不明。
     app = QtWidgets.QApplication(sys.argv)
