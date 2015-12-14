@@ -184,7 +184,7 @@ if __name__ == '__main__':
 
     if not platform.platform().startswith('Darwin'):
         # Macではなぜか自動でやってくれてるので、それ以外
-        glutInit()
+        glutInit(sys.argv)
     
     # Qtアプリケーションのコントロールなどをするやつ。実際に何やってるかは不明。
     app = QtWidgets.QApplication(sys.argv)
