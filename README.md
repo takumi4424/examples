@@ -1,7 +1,7 @@
 Sandpit of Examples
 ================
 
-色々なもののExampleを置いておくだけのリポジトリ
+色々なもののExampleを置いておくだけのリポジトリ．
 
 ## test-pyqt-opengl
 PythonでPyQtとOpenGLを使うExample．
